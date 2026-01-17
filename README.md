@@ -1,71 +1,27 @@
-# nextjs-code README
+# NextJS Code
 
-This is the README for your extension "nextjs-code". After writing up a brief description, we recommend including the following sections.
+An interactive extension to streamline your Next.js development workflow. Start coding instantly, preview your changes, and manage builds, all from within your editor.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- **Instant Dev Server:** Automatically start the Next.js development server when you open the project.
+- **In-Editor Preview:** Debug and preview your app without ever leaving your editor.
+- **One-Click Build & Serve:** Build and serve your app with a single click.
+- **Easy Server Restart:** Restart the server at any time with one click.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- [Node.js](https://nodejs.org/) installed on your machine
+- An existing [Next.js](https://nextjs.org/) project
 
-## Extension Settings
+## Contributing
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+We welcome contributions! If you have suggestions, report a bug, or want to propose new features, please [open an issue](https://github.com/bullptr/nextjs-code/issues) or submit a pull request.
 
-For example:
+## License
 
-This extension contributes the following settings:
+This project is licensed under the [MIT License](https://github.com/bullptr/nextjs-code/blob/main/LICENSE).
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Acknowledgements
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Inspired by the excellent [Vite](https://vite.dev/) for vscode extension by [antfu](https://github.com/antfu).
