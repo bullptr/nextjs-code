@@ -20,6 +20,13 @@
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "NextJS Code",
+    "Next.js",
+    "React",
+    "dev server",
+    "extension"
+  ],
   "activationEvents": [
     "onFileSystem:next.config.ts",
     "onFileSystem:next.config.js"
