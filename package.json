@@ -3,7 +3,7 @@
   "preview": true,
   "displayName": "NextJS Code",
   "description": "Next.js for VS Code",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "bullptr",
   "license": "MIT",
   "engines": {
