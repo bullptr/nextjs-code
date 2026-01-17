@@ -6,6 +6,18 @@
   "engines": {
     "vscode": "^1.108.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bullptr/nextjs-code.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bullptr/nextjs-code/issues"
+  },
+  "galleryBanner": {
+    "color": "#000000",
+    "theme": "dark"
+  },
+  "icon": "images/icon.png",
   "categories": [
     "Other"
   ],
