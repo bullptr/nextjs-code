@@ -7,3 +7,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.1.0] - 2026-01-17
 
 - Initial release
+
+## [0.1.1] - 2026-01-18
+
+- Small patch to ignore preview gif.
