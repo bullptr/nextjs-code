@@ -1,8 +1,11 @@
 {
   "name": "nextjs-code",
+  "preview": true,
   "displayName": "NextJS Code",
   "description": "Next.js for VS Code",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "publisher": "bullptr",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.108.1"
   },
@@ -13,40 +16,152 @@
   "bugs": {
     "url": "https://github.com/bullptr/nextjs-code/issues"
   },
-  "galleryBanner": {
-    "color": "#000000",
-    "theme": "dark"
-  },
   "icon": "images/icon.png",
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onFileSystem:next.config.ts",
+    "onFileSystem:next.config.js"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "nextjs-code.helloWorld",
-        "title": "Hello World"
+        "command": "nextjs-code.restart",
+        "category": "NextJS Code",
+        "title": "Start Next.js Server"
+      },
+      {
+        "command": "nextjs-code.stop",
+        "category": "NextJS Code",
+        "title": "Stop Next.js Server"
+      },
+      {
+        "command": "nextjs-code.open",
+        "category": "NextJS Code",
+        "title": "Open Next.js app"
+      },
+      {
+        "command": "nextjs-code.showCommands",
+        "category": "NextJS Code",
+        "title": "Show commands",
+        "icon": "$(debug-breakpoint-function)"
       }
-    ]
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceScheme == webview-panel && browse-lite-active",
+          "command": "nextjs-code.showCommands",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "NextJS Code",
+      "properties": {
+        "nextjs-code.autoStart": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically start the NextJS Code server when you open your workspace in VS Code. Disable to start the server manually."
+        },
+        "nextjs-code.browserType": {
+          "type": "string",
+          "enum": [
+            "embedded",
+            "system"
+          ],
+          "default": "embedded",
+          "description": "Select which browser to use when opening the NextJS Code app: 'embedded' opens it inside VS Code, while 'system' launches your default web browser."
+        },
+        "nextjs-code.defaultPort": {
+          "type": "number",
+          "default": 4000,
+          "description": "Set the port that the NextJS Code server will listen on. Change this if the default port is already in use."
+        },
+        "nextjs-code.host": {
+          "type": "string",
+          "default": "localhost",
+          "description": "Specify the hostname or IP address the NextJS Code server binds to. Use '0.0.0.0' to allow connections from any network interface."
+        },
+        "nextjs-code.basePath": {
+          "type": "string",
+          "default": "",
+          "description": "Base URL path to use when opening the app (e.g., '/admin'). Leave blank for root. Useful when the NextJS Code app is served from a subdirectory."
+        },
+        "nextjs-code.useHttps": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable HTTPS for secure server communication. Note: Certificate setup might be required if enabled."
+        },
+        "nextjs-code.serverPingInterval": {
+          "type": "number",
+          "default": 200,
+          "description": "Time (in milliseconds) between checks to see if the server is up after starting. Lower values check more frequently."
+        },
+        "nextjs-code.startupTimeout": {
+          "type": "number",
+          "default": 30000,
+          "description": "Maximum time (in milliseconds) to wait for the server to start before giving up and reporting a failure."
+        },
+        "nextjs-code.revealTerminal": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show the VS Code terminal running the server process when starting the server. Useful for debugging and seeing server logs."
+        },
+        "nextjs-code.notifyOnStart": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a VS Code notification when the NextJS Code server is up and running."
+        },
+        "nextjs-code.devScript": {
+          "type": "string",
+          "description": "Custom command to start your development server (e.g., 'npm run dev'). Overrides the default if specified."
+        },
+        "nextjs-code.buildScript": {
+          "type": "string",
+          "description": "Custom command to build your NextJS application (e.g., 'npm run build'). Overrides the default if specified."
+        },
+        "nextjs-code.serveScript": {
+          "type": "string",
+          "description": "Custom command to serve your NextJS application (e.g., 'npm run start'). Overrides the default if specified."
+        },
+        "nextjs-code.open": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically open the NextJS Code app in your chosen browser when the server is ready."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
-    "compile": "tsc -p ./",
+    "compile": "tsup src/extension.ts --dts --external=vscode --out-dir out",
+    "dev": "npm run build -- --watch",
+    "release": "npx bumpp --commit --tag --push",
     "watch": "tsc -watch -p ./",
     "pretest": "pnpm run compile && pnpm run lint",
     "lint": "eslint src",
     "test": "vscode-test"
   },
+  "extensionDependencies": [
+    "antfu.browse-lite"
+  ],
   "devDependencies": {
-    "@types/vscode": "^1.108.1",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
-    "typescript-eslint": "^8.52.0",
-    "eslint": "^9.39.2",
-    "typescript": "^5.9.3",
+    "@types/sinon": "^21.0.0",
+    "@types/vscode": "^1.108.1",
     "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.2",
+    "pkg-up": "^5.0.0",
+    "sinon": "^21.0.1",
+    "tsup": "^8.5.1",
+    "types-package-json": "^2.0.39",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.52.0"
   }
 }
