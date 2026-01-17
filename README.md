@@ -2,7 +2,7 @@
 
 An interactive extension to streamline your Next.js development workflow. Start coding instantly, preview your changes, and manage builds, all from within your editor.
 
-![Preview](images/nextjs-code-preview.gif)
+![Preview](https://raw.githubusercontent.com/bullptr/nextjs-code/refs/heads/main/images/nextjs-code-preview.gif)
 
 ## Features
 
