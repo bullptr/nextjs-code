@@ -11,3 +11,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.1.1] - 2026-01-18
 
 - Small patch to ignore preview gif.
+
+## [0.1.2] - 2026-01-18
+
+- Added keywords to package.json for better discoverability.
