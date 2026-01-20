@@ -4,14 +4,14 @@ All notable changes to the "nextjs-code" extension will be documented in this fi
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [0.1.0] - 2026-01-17
+## [0.1.2] - 2026-01-18
 
-- Initial release
+- Added keywords to package.json for better discoverability.
 
 ## [0.1.1] - 2026-01-18
 
 - Small patch to ignore preview gif.
 
-## [0.1.2] - 2026-01-18
+## [0.1.0] - 2026-01-17
 
-- Added keywords to package.json for better discoverability.
+- Initial release
